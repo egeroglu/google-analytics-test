@@ -3,7 +3,7 @@ import { Component } from "react";
 import ReactGA from 'react-ga';
 function initialGA(){
     ReactGA.initialize('G-L3LS3WXYD2');
-    ReactGA.pageview('test');
+    ReactGA.pageview('son');
 }
 
 class Defi extends Component {
