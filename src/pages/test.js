@@ -5,11 +5,14 @@ import "../App.css";
 import { useNavigate } from "react-router-dom";
 import ReactGA from 'react-ga'; 
 
-ReactGA.initialize('G-L3LS3WXYD2');
+function initialGA(){
+    ReactGA.initialize('G-L3LS3WXYD2');
+    ReactGA.pageview('test');
+}
+
 
 function Test() {
-    ReactGA.pageview(window.location.pathname + window.location.search);
-
+  initialGA();
   // Properties
   const [showResults, setShowResults] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
