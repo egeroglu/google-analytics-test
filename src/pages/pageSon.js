@@ -1,7 +1,7 @@
 import React from 'react';
 import { Component } from "react";
 import ReactGA from 'react-ga';
-ReactGA.initialize('G-RKFYNTHXE4');
+ReactGA.initialize('G-L3LS3WXYD2');
   
 
 class Defi extends Component {

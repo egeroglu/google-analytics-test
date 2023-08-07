@@ -5,7 +5,7 @@ import "../App.css";
 import { useNavigate } from "react-router-dom";
 import ReactGA from 'react-ga'; 
 
-ReactGA.initialize('G-RKFYNTHXE4');
+ReactGA.initialize('G-L3LS3WXYD2');
 
 function Test() {
     ReactGA.pageview(window.location.pathname + window.location.search);
