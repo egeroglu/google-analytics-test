@@ -3,8 +3,12 @@ import { Link } from "react-router-dom";
 import React from "react";
 import "../App.css";
 import { useNavigate } from "react-router-dom";
+import ReactGA from 'react-ga'; 
+
+ReactGA.initialize('G-RKFYNTHXE4');
 
 function Test() {
+    ReactGA.pageview(window.location.pathname + window.location.search);
 
   // Properties
   const [showResults, setShowResults] = useState(false);
@@ -26,6 +30,12 @@ function Test() {
     },
   ];
   const optionClicked = (isCorrect, id) => {
+    ReactGA.event({
+        category: 'Button Click', // Etkinlik kategorisi
+        action: isCorrect, // Etkinlik eylemi
+        label: id, // Buton metni veya başka bir kimlik
+      });
+  
     if (isCorrect) {
       setScore(score + 1);
     }
@@ -53,19 +63,14 @@ function Test() {
                 <div color="#ffffff" fontFamily= "figtree" fontSize={18}>
                   {questions[currentQuestion].options.map((option) => {
                     return (
-                      <Link
-                                to={option.isCorrect ? option.goTo : option.goTo}
-                                onClick={() => optionClicked(option.isCorrect, option.id)}
-                                style={{ textDecoration: "none", color: "inherit" }}
-                              >
+                        <Link
+                            to={option.isCorrect ? option.goTo : option.goTo}
+                            onClick={() => optionClicked(option.isCorrect, option.id, option.text)}
+                            style={{ textDecoration: "none", color: "inherit" }}
+                        >
                         <div className="buttonOnMobile" style={{ paddingTop: "3%" }}>
-                            <li
-                                key={option.id}
-                                className="box-wide"
-                            >      
-                                <div>
-                                  {option.text}
-                                </div>
+                            <li key={option.id} className="box-wide">
+                                <div>{option.text}</div>
                             </li>
                         </div>
                       </Link>
